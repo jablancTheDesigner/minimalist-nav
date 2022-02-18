@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: purple;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.fixed {
+  position: fixed;
+  overflow: hidden;
+}
+
+.space-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  padding: 5rem 2rem;
+  width: 200px;
+}
+.space-nav__action {
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-trigger {
+  position: fixed;
+  z-index: 3;
+  left: 2rem;
+  top: 2rem;
+  width: 2rem;
+}
+.nav-trigger__icon {
+  height: 3px;
+  width: 2rem;
+  background: purple;
+  display: block;
+  position: relative;
+}
+.nav-trigger__icon:after, .nav-trigger__icon:before {
+  content: "";
+  height: 3px;
+  background: purple;
+  display: block;
+  width: 100%;
+  position: absolute;
+  transition: 300ms;
+}
+.nav-trigger__icon:before {
+  bottom: 100%;
+  margin-bottom: 5px;
+}
+.nav-trigger__icon:after {
+  top: 100%;
+  margin-top: 5px;
+}
+.nav-trigger__button {
+  background: transparent;
+  outline: 0;
+  border: 0;
+  height: 20px;
+  cursor: pointer;
+  transition: 300ms;
+}
+.nav-trigger__button.open .nav-trigger__icon {
+  background: white;
+  height: 0;
+}
+.nav-trigger__button.open .nav-trigger__icon:after, .nav-trigger__button.open .nav-trigger__icon:before {
+  background: white;
+  transform-origin: center;
+  margin: 0;
+}
+.nav-trigger__button.open .nav-trigger__icon:after {
+  transform: rotate(45deg) translateY(0);
+  margin-top: -1px;
+}
+.nav-trigger__button.open .nav-trigger__icon:before {
+  transform: rotate(-45deg);
+}
+
+.page-body {
+  position: relative;
+  z-index: 2;
+  background: white;
+  min-height: 100vh;
+  width: 100vw;
+  transition: 350ms;
+  transform: translateX(0) translateY(0) rotateY(0deg);
+  transform-origin: right;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.page-body section {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 3rem;
+  color: purple;
+  text-transform: capitalize;
+  letter-spacing: -0.15;
+}
+.page-body.open {
+  transform: translateX(200px) translateY(25%) rotateY(-15deg);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+body {
+  perspective: 500px;
+}

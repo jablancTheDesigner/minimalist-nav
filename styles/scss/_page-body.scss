@@ -1,0 +1,36 @@
+.page-body {
+    position: relative;
+    z-index: 2;
+    background: white;
+    min-height: 100vh;
+    width: 100vw;
+    transition:  350ms;
+    transform: translateX(0) translateY(0) rotateY(0deg);
+    transform-origin: right;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    section {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+
+        font-weight: bold;
+        font-size: 3rem;
+        color: purple;
+        text-transform: capitalize;
+        letter-spacing: -0.15;
+    }
+
+    &.open{
+        transform: translateX(200px) translateY(25%) rotateY(-15deg);
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+
+}
+
+body{
+    perspective: 500px;
+}
