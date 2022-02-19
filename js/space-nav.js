@@ -9,7 +9,7 @@
     })
 
     loadPage = async (page = 'home.html') => {
-        const response = await fetch(`../pages/${page}`);
+        const response = await fetch(`./pages/${page}`);
 
         if (!response.ok) {
             const errorMsg = `An error has occured: ${response.status}`;
