@@ -24,7 +24,7 @@
     }
 
     &.open{
-        transform: translateX(200px) translateY(25%) rotateY(-15deg);
+        transform: translateX(200px) rotateY(-15deg);
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
     }

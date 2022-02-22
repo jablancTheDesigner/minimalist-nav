@@ -14,31 +14,37 @@
         if (!response.ok) {
             const errorMsg = `An error has occured: ${response.status}`;
             pageBody.innerHTML = errorMsg;
-            throw new Error(errorMsg)
+            throw new Error(errorMsg);
         }
 
         const text = await response.text();
         pageBody.innerHTML = text;
     }
 
-    menuTrigger = () => {
-        if (!menuOpen) {
-            menuOpen = true;
-            document.body.classList.add('fixed');
-            triggerElem.classList.add('open')
-            setTimeout(() => {
-                pageBody.classList.add('open');
-            })
-            return;
-        }
+    openMenu = () => {
+        menuOpen = true;
+        document.body.classList.add('fixed');
+        triggerElem.classList.add('open')
+        setTimeout(() => {
+            pageBody.classList.add('open');
+        })
+    }
 
+    closeMenu = () => {
         menuOpen = false;
         document.body.classList.remove('fixed');
         triggerElem.classList.remove('open');
         setTimeout(() => {
             pageBody.classList.remove('open');
         })
+    }
 
+    menuTrigger = () => {
+        if (!menuOpen) {
+            openMenu();
+            return;
+        }
+        closeMenu();
     }
 
     triggerElem.addEventListener('click', () => {
